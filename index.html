@@ -21,7 +21,7 @@
                 <div class="box">
                     <div>세미나 주제 <span class="required">*</span></div>
                     <div>
-                        <input type="text" name="title" placeholder="주제를 입력하세요" value="">
+                        <input type="text" id="title" name="title" placeholder="주제를 입력하세요" value="">
                         <span id="check">( 0 / 200 )</span>
                     </div>
                 </div>
@@ -29,11 +29,11 @@
                     <div>참가비 <span class="required">*</span></div>
                     <div>
                         <label>
-                            <input type="radio" name="ra">
+                            <input type="radio" name="ra" value="유료">
                             <span>유료</span>
                         </label>
                         <label>
-                            <input type="radio" name="ra">
+                            <input type="radio" name="ra" value="무료">
                             <span>무료</span>
                         </label>
                     </div>
@@ -62,19 +62,19 @@
                     <div>직책 <span class="required">*</span></div>
                     <div>
                         <label>
-                            <input type="checkbox">
+                            <input type="checkbox" name="checkPosition" value="개발자">
                             <span>개발자</span>
                         </label>
                         <label>
-                            <input type="checkbox">
+                            <input type="checkbox" name="checkPosition" value="팀장">
                             <span>팀장</span>
                         </label>
                         <label>
-                            <input type="checkbox">
+                            <input type="checkbox" name="checkPosition" value="과장">
                             <span>과장</span>
                         </label>
                         <label>
-                            <input type="checkbox">
+                            <input type="checkbox" name="checkPosition" value="부장">
                             <span>부장</span>
                         </label>
                         <div class="etc">※ 다중선택 가능</div>
@@ -106,7 +106,7 @@
                 </div>
                 <!-- BTN -->
                 <div class="btn-group">
-                    <a href="">등록</a>
+                    <a href="#">등록</a>
                 </div>
             </div>
             <!-- LIST -->
@@ -129,7 +129,7 @@
                             <td>서울</td>
                             <td>유료</td>
                             <td><a class="ico-down" href="#"></a></td>
-                            <td><a class="ico-trash" href="#"></a></td>
+                            <td><a class="ico-trash" href="#" onclick="delTableRow(this)"></a></td>
                         </tr>
                         <tr>
                             <td class="title">2020 개발자 포럼</td>
@@ -137,7 +137,7 @@
                             <td>경기</td>
                             <td>유료</td>
                             <td></td>
-                            <td><a class="ico-trash" href="#"></a></td>
+                            <td><a class="ico-trash" href="#" onclick="delTableRow(this)"></a></td>
                         </tr>
                         <tr>
                             <td class="title">엑스퍼트 6월 세미나</td>
@@ -145,7 +145,7 @@
                             <td>인천</td>
                             <td>유료</td>
                             <td><a class="ico-down" href="#"></a></td>
-                            <td><a class="ico-trash" href="#"></a></td>
+                            <td><a class="ico-trash" href="#" onclick="delTableRow(this)"></a></td>
                         </tr>                
                     </tbody>
                 </table>
