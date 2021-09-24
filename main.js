@@ -19,14 +19,14 @@ $title.oninput = function() {
 function checkText($text, maxLength) {
     let len = 0;
     for (let i = 0; i<$text.length; i++) {
-            if (escape($text.charAt(i)).length > 4 ) {
-                len += 2;
-            } else {
-                len ++;
-            }
         if(len > maxLength) {
             $title.value = $title.value.substr(0, maxLength);
-            return len;
+            break;
+        }
+        if (escape($text.charAt(i)).length > 4 ) {
+            len += 2;
+        } else {
+            len ++;
         }
     }
     return len;
