@@ -1,37 +1,33 @@
 const $title = document.querySelector('#title');
-const span = document.querySelector('#check');
 const a = document.querySelector('select');
 const tableArea = document.querySelector('.table-responsive');
 
 //초기상태는 테이블이 보이지 않음. 
 tableArea.style.display = "none";
 
+
 //1. 세미나 제목 inputEvent ]
 //글자수 체크, 영문기준 200자까지. 영문 1바이트 한글 2바이트로 인식
-$title.oninput = function() {
-    let text = $title.value;
-    let maxLength = 200;
-    let len = checkText(text,maxLength);
-    span.innerHTML = `( ${len} / 200 )`;
-}
-
+$title.oninput = checkText;
 //input value 검사 
-function checkText($text, maxLength) {
+function checkText(e) {
+    const span = document.querySelector('#check');
+    let targetLength = e.target.value.length;
     let len = 0;
-    for (let i = 0; i<$text.length; i++) {
-        if(len > maxLength) {
-            $title.value = $title.value.substr(0, maxLength);
-            break;
-        }
-        if (escape($text.charAt(i)).length > 4 ) {
-            len += 2;
-        } else {
-            len ++;
+    const maxLength = 200;
+    for (let i = 0; i<targetLength; i++) {
+        if(len < maxLength) {
+            if (escape(e.target.value.charAt(i)).length > 4 ) {
+                len += 2;
+            } else {
+                len ++;
+            }
+        }else {
+            e.target.value = e.target.value.substr(0,targetLength-1);
         }
     }
-    return len;
+    span.innerHTML = `( ${len} / 200 )`;
 }
-
 //파일첨부, 1개만 첨부가능
 // 첨부 시 첨부한 파일의 목록이 FileList 객체 형태로 files 속성에 저장
 // 본 프로젝트에서는 length가 1이상이면 첨부된 것으로 함.
@@ -143,3 +139,27 @@ Btn.addEventListener('click', () => {
         reset()
     }
 })
+
+// $title.oninput = function() {
+//     let text = $title.value;
+//     let maxLength = 200;
+//     let len = checkText(text,maxLength);
+//     span.innerHTML = `( ${len} / 200 )`;
+// }
+
+// //input value 검사 
+// function checkText($text, maxLength) {
+//     let len = 0;
+//     for (let i = 0; i<$text.length; i++) {
+        // if(len > maxLength) {
+        //     $title.value = $title.value.substr(0, maxLength);
+        //     break;
+        // }
+//         if (escape($text.charAt(i)).length > 4 ) {
+//             len += 2;
+//         } else {
+//             len ++;
+//         }
+//     }
+//     return len;
+// }
