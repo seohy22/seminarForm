@@ -9,7 +9,7 @@ tableArea.style.display = "none";
 //1. 세미나 제목 inputEvent ]
 //글자수 체크, 영문기준 200자까지. 영문 1바이트 한글 2바이트로 인식
 $title.oninput = checkText;
-//input value 검사합니다.
+//input value 검사
 function checkText(e) {
     const span = document.querySelector('#check');
     let targetLength = e.target.value.length;
